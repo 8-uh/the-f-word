@@ -10,7 +10,7 @@ var _ = require('lodash');
 var db = mongoose.connection;
 var path = require('path');
 
-var port = 1337;
+var port = process.env.PORT ||  1337;
 
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };   
