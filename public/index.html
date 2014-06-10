@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="@codevinsky">
+  <title>THE F WORD</title>
+  <style>
+  @font-face {
+    font-family: neue;
+    src: local(neue), url('fonts/HelveticaNeue.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: neue-bold;
+    src: local(neue-bold), url('fonts/HelveticaNeue-Bold.ttf') format('truetype');
+  }
+  body { 
+    min-height: 2000px;
+    padding-top: 50px;
+  }
+  .customtooltip {
+    font-family: neue;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    -moz-border-radius:5px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    /* background: #222222; */
+    background: #fff;
+    opacity: .9;
+    /* color: #eeeeee; */
+    color: black;
+    padding: 10px;
+    width: 300px;
+    font-size: 12px;
+    z-index: 10;
+  }
+
+  .customtooltip .title {
+    font-size: 13px;
+  }
+
+  .customtooltip .name {
+    font-weight:bold;
+  }
+  .customtooltip .fuckName {
+    font-family: neue-bold;
+  }
+</style>
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Look At All The Fucks We Give</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" id="apiSelector">
+            <li class="active"><a href="#" data-api="">All of The Fucks</a></li>
+            <li><a href="#" data-api="singleFucks">Single Fucks</a></li>
+            <li><a href="#" data-api="authors">Fuckers</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://twitter.com/codevinsky" target="new">by @codevinsky</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container" id="vis">
+    </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/lodash.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/CustomTooltip.js"></script>
+<script src="js/force.js"></script>
+</body>
+</html>
