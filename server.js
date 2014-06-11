@@ -16,8 +16,8 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };   
 var mongooseUri = uriUtil.formatMongoose('mongodb://fwordapp:r3Dcastl3@ds035428.mongolab.com:35428/heroku_app26222746');
 console.log(mongooseUri);
-//mongoose.connect(mongooseUri, options);
-mongoose.connect('mongodb://localhost/fwordbot');
+mongoose.connect(mongooseUri, options);
+//mongoose.connect('mongodb://localhost/fwordbot');
 var Fuck = require('./lib/schemas/Fuck');
 var SingleFuck = require('./lib/schemas/SingleFuck');
 var Author = require('./lib/schemas/Author');
