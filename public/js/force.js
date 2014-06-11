@@ -43,12 +43,14 @@ BubbleChart = (function() {
 
   BubbleChart.prototype.createNodes = function() {
     this.data.forEach(function(d, i) {
+      console.log('data:', d);
         var node;
         node = {
           id: i,
           radius: this.radiusScale(d.count),
           value: d.count,
           name: d.name,
+          comments: d.comments,
           x: Math.random() * 900,
           y: Math.random() * 800
         };
@@ -84,6 +86,9 @@ BubbleChart = (function() {
           return self.showDetails(d, i, this);
     }).on('mouseout', function(d, i) {
       return self.hideDetails(d, i, this);
+    })
+    .on('click', function(d) {
+      showModal(d);
     });
     return this.circles.transition().duration(2000).attr('r', function(d) {
       return d.radius;
@@ -240,9 +245,9 @@ $(function() {
       n = _.first(d, 1000);
       nodes = _.map(n, function(d) {
         if(d.term) {
-          return { name: d.term, count: d.tf };  
+          return { name: d.term, count: d.tf, comments: d.comments};  
         } else {
-          return {name: d.name, count: d.total};
+          return {name: d.name, count: d.total, comments: d.comments};
         }
         
       });
@@ -264,3 +269,18 @@ $(function() {
     getData(endpoint);
   });
 });
+
+function showModal(d) {
+  console.log('d:', d);
+  var template = $('#modalTemplate').html();
+  Mustache.parse(template);
+
+  d.comments.forEach(function(comment) {
+    comment.linkTitle = comment.linkTitle.substring(0,60) + '...';
+  });
+
+  var rendered = Mustache.render(template, d);
+  $('#modalBody').html(rendered);
+  $('#modalTitle').html(d.name);
+  $('#fuckModal').modal('show');
+}
