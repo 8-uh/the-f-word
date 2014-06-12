@@ -226,7 +226,7 @@ $(function() {
     links = [], 
     trimPercent = 0;
   function getData(endpoint) {
-    $.ajax('http://thefword.herokuapp.com/api/' + endpoint)
+    $.ajax('api/' + endpoint)
     .done(function(data) {
       var d, n;
       var nameTitle, countTitle;
