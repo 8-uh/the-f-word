@@ -43,7 +43,6 @@ BubbleChart = (function() {
 
   BubbleChart.prototype.createNodes = function() {
     this.data.forEach(function(d, i) {
-      console.log('data:', d);
         var node;
         node = {
           id: i,
@@ -227,7 +226,7 @@ $(function() {
     links = [], 
     trimPercent = 0;
   function getData(endpoint) {
-    $.ajax('api/' + endpoint)
+    $.ajax('http://thefword.herokuapp.com/api/' + endpoint)
     .done(function(data) {
       var d, n;
       var nameTitle, countTitle;
@@ -270,8 +269,7 @@ $(function() {
   });
 });
 
-function showModal(d) {
-  console.log('d:', d);
+function showModal(d) { 
   var template = $('#modalTemplate').html();
   Mustache.parse(template);
 
